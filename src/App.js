@@ -4,8 +4,6 @@ import NavBar from './components/NavBar';
 import HomeMsgContainer from './containers/HomeMsgContainer';
 import MsgContainer from './containers/MsgContainer/index';
 
-import './App.scss';
-
 class App extends Component {
   render() {
     return (

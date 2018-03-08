@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import URI from 'urijs'
 import MsgList from '../components/MsgList';
 
 export default class HomeMsgContainer extends Component {
