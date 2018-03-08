@@ -1,6 +1,7 @@
 .msg-container {
-  width: 520px;
-  margin: 20px auto 60px;
+  max-width: 520px;
+  margin: 0 auto 60px;
+  padding: 15px;
   p,
   li {
     line-height: 1.5;
@@ -15,7 +16,7 @@
   }
   figure.background {
     position: relative;
-    margin: 0;
+    margin: -15px;
     max-height: 300px;
     overflow: hidden;
     img {

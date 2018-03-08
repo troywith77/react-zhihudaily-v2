@@ -105,7 +105,7 @@ class MenuAppBar extends React.Component {
             <DialogContentText id="alert-dialog-description">
             Hi, I'm Troy(唐锐). I'm a frontend developer, gym lover and NBA enthusiast currently residing in beautiful ShangHai, China.
             I'm currently working on Wallstreetcn.com
-            <a style={styles.getInTouch} href="https://github.com/troywith77" target="_blank">GET IN TOUCH</a>
+            <a style={styles.getInTouch} href="https://github.com/troywith77" target="_blank" rel="noopener noreferrer">GET IN TOUCH</a>
             </DialogContentText>
           </DialogContent>
           <DialogActions>
