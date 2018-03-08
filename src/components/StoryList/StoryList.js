@@ -23,7 +23,7 @@ export default function MsgList ({ stories }) {
                   <Avatar alt={story.title} src={imgSrc} />
                 </ListItemAvatar>
                 <ListItemText
-                  primary={<Link to={`/msg/${story.id}`}>{story.title}</Link>}
+                  primary={<Link to={`/story/${story.id}`}>{story.title}</Link>}
                 />
               </ListItem>
             )

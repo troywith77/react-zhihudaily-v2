@@ -1,0 +1,46 @@
+.msg-container {
+  width: 520px;
+  margin: 20px auto 60px;
+  p,
+  li {
+    line-height: 1.5;
+  }
+  a {
+    text-decoration: none;
+    color: #3f51b5;
+  }
+  img {
+    text-align: center;
+    max-width: 100%;
+  }
+  figure.background {
+    position: relative;
+    margin: 0;
+    max-height: 300px;
+    overflow: hidden;
+    img {
+      display: block;
+      margin-top: -10%;
+    }
+    p {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: #fff;
+      font-size: 12px;
+      background: rgba(50, 50, 50, 0.8);
+      padding: 0 5px;
+      margin: 0;
+    }
+  }
+  .meta {
+    img {
+      display: inline-block;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    * {
+      vertical-align: middle;
+    }
+  }
+}
