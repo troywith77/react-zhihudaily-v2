@@ -15,13 +15,18 @@ export default function MsgList ({ stories }) {
       <List dense={false}>
         {
           stories.map((story) => {
-            const path = story.images[0]
-            const imgSrc = `/image?url=${path}`
+            const path = story.images && story.images[0]
+            let imgSrc
+            if (path) imgSrc = `/image?url=${path}`
             return (
               <ListItem key={story.id}>
-                <ListItemAvatar>
-                  <Avatar alt={story.title} src={imgSrc} />
-                </ListItemAvatar>
+                {
+                  imgSrc && (
+                  <ListItemAvatar>
+                    <Avatar alt={story.title} src={imgSrc} />
+                  </ListItemAvatar>
+                  )
+                }
                 <ListItemText
                   primary={<Link to={`/story/${story.id}`}>{story.title}</Link>}
                 />

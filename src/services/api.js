@@ -7,3 +7,11 @@ export function getLatestStories() {
 export function getNews(id) {
   return axios.get(`/api/4/news/${id}`)
 }
+
+export function getThemes() {
+  return axios.get('/api/4/themes')
+}
+
+export function getTheme(id) {
+  return axios.get(`/api/4/theme/${id}`)
+}

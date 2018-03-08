@@ -5,7 +5,6 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Dialog, {
@@ -16,16 +15,14 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import Button from 'material-ui/Button';
 
+import NavDrawer from '../NavDrawer/NavDrawer'
+
 const styles = {
   root: {
     width: '100%',
   },
   flex: {
     flex: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
   },
   getInTouch: {
     display: 'block',
@@ -65,11 +62,9 @@ class MenuAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon />
-            </IconButton>
+            <NavDrawer />
             <Typography type="title" color="inherit" className={classes.flex}>
-              小报
+              知知日报
             </Typography>
             <div>
               <IconButton
