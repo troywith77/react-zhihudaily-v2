@@ -88,10 +88,10 @@ module.exports = function(proxy, allowedHost) {
       //   changeOrigin: true
       // },
       "/api/**": {
-        target: "http://127.0.0.1:3001"
+        target: "http://127.0.0.1:3111"
       },
       "/image": {
-        target: "http://127.0.0.1:3001"
+        target: "http://127.0.0.1:3111"
       }
     },
     before(app) {

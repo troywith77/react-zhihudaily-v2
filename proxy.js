@@ -5,6 +5,7 @@ const axios = require('axios');
 const superagent = require('superagent');
 
 const app = new Koa();
+const PORT = 3111;
 
 app.use(cors());
 
@@ -20,4 +21,4 @@ router.get('/image', async (ctx) => {
 
 app.use(router.routes())
 
-app.listen(3001, () => console.log('proxy server is running at port 3001.'))
+app.listen(PORT, () => console.log(`proxy server is running at port ${PORT}.`))
