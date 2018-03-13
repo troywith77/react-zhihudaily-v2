@@ -1,15 +1,17 @@
 import { getLatestStories } from '../services/api';
 
-// export const getLatestStories = () => ({
-//   type: 'GET_LATEST_STORIES'
-// })
+export const fetchingLatestStories = () => ({
+  type: 'FETCHING_LATEST_STORIES'
+})
 
-export const getLatestStories = () => (dispatch) => {
+export const fetchedLatestStories = data => ({
+  type: 'FETCHED_LATEST_STORIES',
+  payload: data
+})
+
+export const fetchLatestStories = () => (dispatch) => {
+  dispatch(fetchingLatestStories())
   getLatestStories().then((res) => {
-    console.log(res.data.stories);
-    // this.setState({
-    //   stories: res.data.stories,
-    //   topStories: res.data.top_stories
-    // })
+    dispatch(fetchedLatestStories(res.data))
   })
 }

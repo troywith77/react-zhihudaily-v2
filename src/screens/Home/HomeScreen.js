@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { getLatestStories } from '../../services/api';
+import { connect } from 'react-redux';
 import StoryList from '../../components/StoryList/StoryList';
+import { fetchLatestStories } from '~/actions';
 
-export default class HomeMsgContainer extends Component {
+class HomeMsgContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,19 +12,19 @@ export default class HomeMsgContainer extends Component {
     }
   }
   componentDidMount() {
-    getLatestStories().then((res) => {
-      console.log(res.data.stories);
-      this.setState({
-        stories: res.data.stories,
-        topStories: res.data.top_stories
-      })
-    })
+    this.props.dispatch(fetchLatestStories())
   }
   render() {
     return (
       <div>
-        <StoryList stories={this.state.stories} />
+        <StoryList stories={this.props.stories} />
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  stories: state.stories.stories
+})
+
+export default connect(mapStateToProps)(HomeMsgContainer);
