@@ -1,8 +1,15 @@
+.topStory-slide-container {
+  [data-swipeable] {
+    overflow: hidden !important;
+  }
+}
+
 .topStory-slide {
   position: relative;
   min-height: 200px;
-  width: 100%;
+  width: 520px;
   height: 100%;
+  margin: 0 auto;
   &-link {
     display: block;
     width: 100%;

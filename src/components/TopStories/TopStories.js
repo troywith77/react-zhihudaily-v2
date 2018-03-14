@@ -9,7 +9,7 @@ function TopStories({
   stories
 }) {
   return (
-    <SwipeableViews enableMouseEvents>
+    <SwipeableViews enableMouseEvents className="topStory-slide-container">
       {
         stories.map((story) => {
           const bg = convertImageSrc(story.image)
