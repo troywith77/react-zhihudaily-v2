@@ -1,5 +1,11 @@
+import pkg from '../../package.json';
+
 export function convertImageSrc(src) {
-  return src ? `/image?url=${src}` : undefined;
+  if (process.env.NODE_ENV !== 'development') {
+    return src ? `http://127.0.0.1:${pkg.proxySrverPort}/image?url=${src}` : undefined;
+  } else {
+    return src ? `/image?url=${src}` : undefined;
+  }
 }
 
 export function logRelatedRepo() {

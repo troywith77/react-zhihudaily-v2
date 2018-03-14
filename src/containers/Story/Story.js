@@ -1,5 +1,6 @@
 import React from 'react';
 import { getStory, getStoryLongComments, getStoryShortComments } from '~/services/api';
+import { convertImageSrc } from '~/services/utils';
 import './StoryStyle';
 
 class Story extends React.Component {
@@ -14,7 +15,7 @@ class Story extends React.Component {
     element.innerHTML = body;
     Array.from(element.querySelectorAll('img')).forEach((img) => {
       img.setAttribute('alt', img.getAttribute('src'));
-      img.setAttribute('src', `/image?url=${img.getAttribute('src')}`);
+      img.setAttribute('src', convertImageSrc(img.getAttribute('src')));
     });
     Array.from(element.querySelectorAll('a')).forEach((link) => {
       link.setAttribute('target', '_blank');

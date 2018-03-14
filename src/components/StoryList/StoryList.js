@@ -8,6 +8,7 @@ import List, {
 import Avatar from 'material-ui/Avatar';
 import { Link } from 'react-router-dom';
 
+import { convertImageSrc } from '~/services/utils';
 import './StoryListStyle';
 
 export default function StoryList ({
@@ -24,7 +25,7 @@ export default function StoryList ({
           stories.map((story) => {
             const path = story.images && story.images[0]
             let imgSrc
-            if (path) imgSrc = `/image?url=${path}`
+            if (path) imgSrc = convertImageSrc(path);
             return (
               <ListItem key={story.id}>
                 {

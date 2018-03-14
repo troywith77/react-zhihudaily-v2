@@ -1,10 +1,11 @@
 import axios from 'axios';
+import pkg from '../../package.json';
 
 let instance;
 
 if (process.env.NODE_ENV !== 'development') {
   instance = axios.create({
-    baseURL: 'http://127.0.0.1:8082',
+    baseURL: `http://127.0.0.1:${pkg.proxySrverPort}`,
     timeout: 10000
   });
 } else {
