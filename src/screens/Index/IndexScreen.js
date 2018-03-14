@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TopStories from '../../components/TopStories/TopStories';
 import StoryList from '../../components/StoryList/StoryList';
 import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
 import { fetchLatestStories, fetchStoriesBefore } from '~/actions';
@@ -15,9 +16,10 @@ class HomeMsgContainer extends Component {
   }
 
   render() {
-    const { latestStories, storiesBefore, fetching } = this.props;
+    const { topStories, latestStories, storiesBefore, fetching } = this.props;
     return (
       <div>
+        <TopStories stories={topStories} />
         <StoryList stories={latestStories} header="今天" />
         {
           storiesBefore.map((stories) => (
@@ -35,6 +37,7 @@ class HomeMsgContainer extends Component {
 }
 
 const mapStateToProps = state => ({
+  topStories: state.stories.topStories,
   latestStories: state.stories.latestStories,
   storiesBefore: state.stories.storiesBefore,
   date: state.stories.date,

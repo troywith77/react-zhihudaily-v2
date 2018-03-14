@@ -48,6 +48,14 @@ class NavDrawer extends React.Component {
     const sideList = (
       <div className="nav-drawer-list">
         <List>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar alt="placeholder" src="https://placeimg.com/40/40/any" />
+            </ListItemAvatar>
+            <ListItemText
+              primary={<Link to={'/'}>首页</Link>}
+            />
+          </ListItem>
           {
             this.state.themes.map((theme) => {
               return (
