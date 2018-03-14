@@ -5,8 +5,11 @@ import './index.scss';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import createStore from './store';
+import { logRelatedRepo } from './services/utils';
 
 const store = createStore();
+
+logRelatedRepo();
 
 ReactDOM.render(
   <Provider store={store}>
