@@ -13,9 +13,9 @@ export const fetchedLatestStories = data => ({
 })
 
 export const fetchLatestStories = () => (dispatch) => {
-  dispatch(fetchingStories())
+  // dispatch(fetchingStories());
   getLatestStories().then((res) => {
-    dispatch(fetchedLatestStories(res.data))
+    dispatch(fetchedLatestStories(res.data));
   })
 }
 
@@ -29,8 +29,8 @@ export const fetchedStoriesBefore = data => ({
 })
 
 export const fetchStoriesBefore = (date) => (dispatch) => {
-  dispatch(fetchingStories())
+  dispatch(fetchingStories());
   getStoriesBefore(date).then((res) => {
-    dispatch(fetchedStoriesBefore(res.data))
-  })
+    dispatch(fetchedStoriesBefore(res.data));
+  });
 }
