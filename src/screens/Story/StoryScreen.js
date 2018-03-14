@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getNews } from '../../services/api';
-import './style.scss';
+import './StoryScreenStyle';
 
 class MsgContainer extends Component {
   state = {

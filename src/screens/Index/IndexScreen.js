@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TopStories from '../../components/TopStories/TopStories';
 import StoryList from '../../components/StoryList/StoryList';
 import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
+import Loading from '../../components/Loading/Loading';
 import { fetchLatestStories, fetchStoriesBefore } from '~/actions';
 
 class HomeMsgContainer extends Component {
@@ -30,6 +31,9 @@ class HomeMsgContainer extends Component {
           latestStories.length ? (
             <LoadMoreButton fetching={fetching} onClick={this.handleLoadStoriesBefore} />
           ) : null
+        }
+        {
+          fetching ? <Loading /> : null
         }
       </div>
     )

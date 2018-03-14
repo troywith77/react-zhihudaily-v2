@@ -8,14 +8,14 @@ import List, {
 import Avatar from 'material-ui/Avatar';
 import { Link } from 'react-router-dom';
 
-import './style.scss';
+import './StoryListStyle';
 
-export default function MsgList ({
+export default function StoryList ({
   stories,
   header
 }) {
   return (
-    <div className="msg-list">
+    <div className="story-list">
       <List
         dense={false}
         subheader={<ListSubheader component="div" className="list-subheader">{header}</ListSubheader>}

@@ -3,7 +3,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { Link } from 'react-router-dom';
 import { convertImageSrc } from '~/services/utils';
 
-import './style.scss';
+import './TopStoriesStyle';
 
 function TopStories({
   stories

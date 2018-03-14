@@ -10,13 +10,11 @@ const styles = theme => ({
 });
 
 function FloatingActionButtons(props) {
-  const { classes, children, onClick, fetching } = props;
+  const { classes, children, onClick } = props;
   return (
-    <div style={{textAlign: 'right', padding: '20px'}}>
-      <Button variant="fab" color="primary" aria-label="add" className={classes.button} onClick={onClick} disabled={fetching}>
-        {children}
-      </Button>
-    </div>
+    <Button variant="fab" color="primary" aria-label="add" className={classes.button} onClick={onClick}>
+      {children}
+    </Button>
   );
 }
 

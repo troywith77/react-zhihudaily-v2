@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 import { getThemes } from '../../services/api';
 import { convertImageSrc } from '../../services/utils';
-import './style.scss';
+import './NavDrawerStyle';
 
 const styles = {
   list: {
