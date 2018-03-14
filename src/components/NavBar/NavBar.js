@@ -29,7 +29,8 @@ const styles = {
   },
   getInTouch: {
     display: 'block',
-    color: '#3f51b5'
+    color: '#3f51b5',
+    marginTop: 10
   }
 };
 

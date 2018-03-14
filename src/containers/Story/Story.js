@@ -58,7 +58,6 @@ class Story extends React.Component {
   }
 
   render () {
-    console.log(this.state);
     return this.props.render(this.state);
   }
 }
