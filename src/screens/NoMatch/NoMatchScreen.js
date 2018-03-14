@@ -10,7 +10,7 @@ const NoMatchScreen = () => {
         你要的页面找不到啦，<Link to="/">返回首页？</Link>
       </p>
       <p>
-        或者 <a href="http://tangrui.win" target="_blank">随便看看？</a>
+        或者 <a href="http://tangrui.win" target="_blank" rel="noopener noreferrer">随便看看？</a>
       </p>
     </div>
   )
