@@ -1,6 +1,9 @@
 .loadmore-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
+  margin: 10px 0;
+  padding: 15px;
+  text-align: right;
   z-index: 2;
+  &-fetching {
+    display: none;
+  }
 }

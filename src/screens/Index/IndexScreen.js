@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import TopStories from '../../components/TopStories/TopStories';
 import StoryList from '../../components/StoryList/StoryList';
 import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
 import Loading from '../../components/Loading/Loading';
-import { fetchLatestStories, fetchStoriesBefore } from '~/actions';
+import * as ActionsCreators from '~/actions';
 
 class HomeMsgContainer extends Component {
   handleLoadStoriesBefore = () => {
-    const { dispatch, date } = this.props;
-    dispatch(fetchStoriesBefore(date));
+    const { actions, date } = this.props;
+    actions.fetchStoriesBefore(date);
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchLatestStories());
+    this.props.actions.fetchLatestStories();
   }
 
   render() {
@@ -48,4 +49,8 @@ const mapStateToProps = state => ({
   fetching: state.stories.fetching
 })
 
-export default connect(mapStateToProps)(HomeMsgContainer);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(ActionsCreators, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeMsgContainer);
