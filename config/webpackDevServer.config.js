@@ -5,6 +5,7 @@ const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMi
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const config = require('./webpack.config.dev');
 const paths = require('./paths');
+const pkg = require('../package.json');
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
@@ -88,10 +89,10 @@ module.exports = function(proxy, allowedHost) {
       //   changeOrigin: true
       // },
       "/api/**": {
-        target: "http://127.0.0.1:3111"
+        target: `http://127.0.0.1:${pkg.proxySrverPort}`
       },
       "/image": {
-        target: "http://127.0.0.1:3111"
+        target: `http://127.0.0.1:${pkg.proxySrverPort}`
       }
     },
     before(app) {

@@ -5,9 +5,13 @@ const axios = require('axios');
 const superagent = require('superagent');
 
 const app = new Koa();
-const PORT = 3111;
+const PORT = require('../package.json').proxySrverPort;
 
 app.use(cors());
+
+router.get('/', (ctx) => {
+  ctx.body = 'This is the proxy sercer, please confirm your url.'
+})
 
 router.get('/api/*', async (ctx) => {
   const url = `http://news-at.zhihu.com${ctx.url}`
