@@ -15,6 +15,7 @@
   li,
   div {
     line-height: 1.5;
+    word-break: break-all;
   }
   img {
     text-align: center;
@@ -55,6 +56,14 @@
   }
   .content {
     margin: 16px 0;
+  }
+  .story-comment-list-header {
+    margin: 15px -15px;
+    padding: 15px;
+    background-color: #efefef;
+  }
+  .story-content {
+    margin-bottom: 50px;
   }
 }
 

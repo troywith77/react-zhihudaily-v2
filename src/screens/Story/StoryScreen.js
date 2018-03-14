@@ -14,10 +14,10 @@ const StoryScreen = ({
     <Story
       id={id}
       render={(state) => {
-        const { type, data } = state;
+        const { type } = state;
         if (!type) return null;
-        if (type === 'theme') return <ThemeStory data={data} />;
-        if (type === 'story') return <NormalStory data={data} />;
+        if (type === 'theme') return <ThemeStory state={state} />;
+        if (type === 'story') return <NormalStory state={state} />;
       }}
     />
   )

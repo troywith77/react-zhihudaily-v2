@@ -8,8 +8,16 @@ export function getStoriesBefore(date) {
   return axios.get(`/api/4/news/before/${date}`)
 }
 
-export function getNews(id) {
+export function getStory(id) {
   return axios.get(`/api/4/news/${id}`)
+}
+
+export function getStoryLongComments(id) {
+  return axios.get(`/api/4/story/${id}/long-comments`)
+}
+
+export function getStoryShortComments(id) {
+  return axios.get(`/api/4/story/${id}/short-comments`)
 }
 
 export function getThemes() {

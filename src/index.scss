@@ -14,6 +14,8 @@ a:hover {
   display: inline-block;
   color: #3f51b5;
   text-decoration: none;
+  // 避免过长的英文
+  word-break: break-all;
 }
 
 .list-subheader {

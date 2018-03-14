@@ -1,5 +1,5 @@
 export function convertImageSrc(src) {
-  return `/image?url=${src}`
+  return src ? `/image?url=${src}` : undefined;
 }
 
 export function logRelatedRepo() {

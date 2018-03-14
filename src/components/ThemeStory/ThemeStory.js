@@ -1,22 +1,16 @@
 import React from 'react';
-import { convertImageSrc } from '~/services/utils';
+import StoryMain from '~/components/StoryMain/StoryMain';
+import StoryBackground from '~/components/StoryBackground/StoryBackground';
 
 import './ThemeStoryStyle';
 
 const ThemeStoryScreen = ({
-  data
+  state
 }) => {
   return (
     <div className="story-container theme-story-container">
-      {
-        data.image && (
-          <figure className="background">
-            <img src={convertImageSrc(data.image)} alt={data.title} />
-            <p>来源：{data.image_source}</p>
-          </figure>
-        )
-      }
-      <article dangerouslySetInnerHTML={{ __html: data.body }}></article>
+      <StoryBackground {...state} />
+      <StoryMain {...state} />
     </div>
   )
 }
