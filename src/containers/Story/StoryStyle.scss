@@ -1,17 +1,19 @@
-.msg-container {
+.story-container {
   max-width: 520px;
   margin: 10px auto 60px;
   padding: 15px;
   h1 {
     margin: 35px 0 0;
     font-size: 30px;
+    line-height: 1.35;
   }
   h2 {
     font-size: 20px;
     line-height: 1.35;
   }
   p,
-  li {
+  li,
+  div {
     line-height: 1.5;
   }
   img {
@@ -51,10 +53,13 @@
       vertical-align: middle;
     }
   }
+  .content {
+    margin: 16px 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .msg-container {
+  .story-container {
     margin-top: 0;
   }
   figure.background {

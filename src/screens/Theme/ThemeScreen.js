@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as ActionCreators from '~/actions';
+import * as ThemesActionCreators from '~/actions/themes';
 import StoryList from '~/components/StoryList/StoryList';
 
 class ThemeScreen extends React.Component {
@@ -36,7 +36,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(ActionCreators, dispatch)
+  actions: bindActionCreators(ThemesActionCreators, dispatch)
 })
 
 export default connect(
