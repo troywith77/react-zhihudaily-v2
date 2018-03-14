@@ -5,7 +5,7 @@ let instance;
 
 if (process.env.NODE_ENV !== 'development') {
   instance = axios.create({
-    baseURL: `http://127.0.0.1:${pkg.proxySrverPort}`,
+    baseURL: `http://45.32.37.144:${pkg.proxySrverPort}`,
     timeout: 10000
   });
 } else {

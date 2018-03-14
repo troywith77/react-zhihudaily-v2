@@ -2,7 +2,7 @@ import pkg from '../../package.json';
 
 export function convertImageSrc(src) {
   if (process.env.NODE_ENV !== 'development') {
-    return src ? `http://127.0.0.1:${pkg.proxySrverPort}/image?url=${src}` : undefined;
+    return src ? `http://45.32.37.144:${pkg.proxySrverPort}/image?url=${src}` : undefined;
   } else {
     return src ? `/image?url=${src}` : undefined;
   }
