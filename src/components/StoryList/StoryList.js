@@ -3,16 +3,23 @@ import List, {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  ListSubheader
 } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
 
-export default function MsgList ({ stories }) {
+export default function MsgList ({
+  stories,
+  header
+}) {
   return (
     <div className="msg-list">
-      <List dense={false}>
+      <List
+        dense={false}
+        subheader={<ListSubheader component="div" className="list-subheader">{header}</ListSubheader>}
+      >
         {
           stories.map((story) => {
             const path = story.images && story.images[0]

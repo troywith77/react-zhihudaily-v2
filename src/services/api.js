@@ -4,6 +4,10 @@ export function getLatestStories() {
   return axios.get('/api/4/news/latest')
 }
 
+export function getStoriesBefore(date) {
+  return axios.get(`/api/4/news/before/${date}`)
+}
+
 export function getNews(id) {
   return axios.get(`/api/4/news/${id}`)
 }

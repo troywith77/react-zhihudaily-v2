@@ -1,7 +1,15 @@
 .msg-container {
   max-width: 520px;
-  margin: 0 auto 60px;
+  margin: 10px auto 60px;
   padding: 15px;
+  h1 {
+    margin: 35px 0 0;
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 20px;
+    line-height: 1.35;
+  }
   p,
   li {
     line-height: 1.5;
@@ -34,6 +42,9 @@
       margin: 0;
     }
   }
+  figure {
+    margin: 16px 0;
+  }
   .meta {
     img {
       display: inline-block;
@@ -43,5 +54,14 @@
     * {
       vertical-align: middle;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .msg-container {
+    margin-top: 0;
+  }
+  figure.background {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   }
 }

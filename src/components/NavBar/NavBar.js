@@ -20,6 +20,9 @@ import NavDrawer from '../NavDrawer/NavDrawer'
 const styles = {
   root: {
     width: '100%',
+    position: 'sticky',
+    top: 0,
+    zIndex: 2
   },
   flex: {
     flex: 1,

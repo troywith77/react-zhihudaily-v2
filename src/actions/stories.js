@@ -1,7 +1,10 @@
-import { getLatestStories } from '../services/api';
+import {
+  getLatestStories,
+  getStoriesBefore
+} from '../services/api';
 
-export const fetchingLatestStories = () => ({
-  type: 'FETCHING_LATEST_STORIES'
+export const fetchingStories = () => ({
+  type: 'FETCHING_STORIES'
 })
 
 export const fetchedLatestStories = data => ({
@@ -10,8 +13,24 @@ export const fetchedLatestStories = data => ({
 })
 
 export const fetchLatestStories = () => (dispatch) => {
-  dispatch(fetchingLatestStories())
+  dispatch(fetchingStories())
   getLatestStories().then((res) => {
     dispatch(fetchedLatestStories(res.data))
+  })
+}
+
+export const fetchingStoriesBefore = () => ({
+  type: 'FETCHING_STORIES_BEFORE'
+})
+
+export const fetchedStoriesBefore = data => ({
+  type: 'FETCHED_STORIES_BEFORE',
+  payload: data
+})
+
+export const fetchStoriesBefore = (date) => (dispatch) => {
+  dispatch(fetchingStories())
+  getStoriesBefore(date).then((res) => {
+    dispatch(fetchedStoriesBefore(res.data))
   })
 }
