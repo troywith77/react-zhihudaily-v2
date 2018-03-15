@@ -2,7 +2,7 @@ import React from 'react';
 import StoryMain from '~/components/StoryMain/StoryMain';
 import StoryBackground from '~/components/StoryBackground/StoryBackground';
 
-const StoryScreen = ({
+const NormalStory = ({
   state
 }) => {
   const { data } = state;
@@ -15,4 +15,4 @@ const StoryScreen = ({
   )
 }
 
-export default StoryScreen;
+export default NormalStory;

@@ -5,6 +5,7 @@ import './StoryStyle';
 
 class Story extends React.Component {
   state = {
+    fetching: true,
     data: {},
     shortComments: [],
     longComments: []
@@ -35,6 +36,7 @@ class Story extends React.Component {
       };
       this.setState({
         data,
+        fetching: false,
         type: data.theme ? 'theme' : 'story'
       });
     });

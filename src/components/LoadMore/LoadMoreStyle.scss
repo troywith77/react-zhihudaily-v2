@@ -1,0 +1,8 @@
+.loadmore {
+  margin-bottom: 15px;
+  padding: 30px;
+  text-align: center;
+  &-fetching {
+    display: none;
+  }
+}

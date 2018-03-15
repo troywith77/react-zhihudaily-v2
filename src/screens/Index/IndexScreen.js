@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TopStories from '../../components/TopStories/TopStories';
 import StoryList from '../../components/StoryList/StoryList';
-import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
+import LoadMore from '../../components/LoadMore/LoadMore';
 import Loading from '../../components/Loading/Loading';
 import * as ActionsCreators from '~/actions';
 
@@ -22,17 +22,15 @@ class HomeMsgContainer extends Component {
     return (
       <div>
         <TopStories stories={topStories} />
-        <StoryList stories={latestStories} header="今天" />
+        {
+          latestStories.length ? <StoryList stories={latestStories} header="今天" /> : null 
+        }
         {
           storiesBefore.map((stories) => (
             <StoryList stories={stories.stories} header={stories.date} key={stories.date} />
           ))
         }
-        {
-          latestStories.length ? (
-            <LoadMoreButton fetching={fetching} onClick={this.handleLoadStoriesBefore} />
-          ) : null
-        }
+        <LoadMore fetching={fetching} onClick={this.handleLoadStoriesBefore} />
         {
           fetching ? <Loading /> : null
         }

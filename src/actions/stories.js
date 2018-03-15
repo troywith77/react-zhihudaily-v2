@@ -12,8 +12,9 @@ export const fetchedLatestStories = data => ({
   payload: data
 })
 
-export const fetchLatestStories = () => (dispatch) => {
-  // dispatch(fetchingStories());
+export const fetchLatestStories = () => (dispatch, getState) => {
+  if (getState().stories.latestStories.length) return;
+  dispatch(fetchingStories());
   getLatestStories().then((res) => {
     dispatch(fetchedLatestStories(res.data));
   })

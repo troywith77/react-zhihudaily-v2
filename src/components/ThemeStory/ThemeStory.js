@@ -4,7 +4,7 @@ import StoryBackground from '~/components/StoryBackground/StoryBackground';
 
 import './ThemeStoryStyle';
 
-const ThemeStoryScreen = ({
+const ThemeStory = ({
   state
 }) => {
   return (
@@ -15,4 +15,4 @@ const ThemeStoryScreen = ({
   )
 }
 
-export default ThemeStoryScreen;
+export default ThemeStory;
