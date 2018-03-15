@@ -81,20 +81,6 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
-    // proxy,
-    proxy: {
-      // "/api/**": {
-      //   target: "http://news-at.zhihu.com",
-      //   secure: false,
-      //   changeOrigin: true
-      // },
-      "/api/**": {
-        target: `http://127.0.0.1:${pkg.proxySrverPort}`
-      },
-      "/image": {
-        target: `http://127.0.0.1:${pkg.proxySrverPort}`
-      }
-    },
     before(app) {
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());

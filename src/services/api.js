@@ -1,16 +1,12 @@
 import axios from 'axios';
-import pkg from '../../package.json';
+import { getBaseURL } from './env';
 
-let instance;
+const baseURL = getBaseURL();
 
-if (process.env.NODE_ENV !== 'development') {
-  instance = axios.create({
-    baseURL: `http://45.32.37.144:${pkg.proxySrverPort}`,
-    timeout: 10000
-  });
-} else {
-  instance = axios;
-}
+const instance = axios.create({
+  baseURL,
+  timeout: 10000
+});
 
 export function getLatestStories() {
   return instance.get('/api/4/news/latest')

@@ -1,11 +1,7 @@
-import pkg from '../../package.json';
+import { getBaseURL } from './env';
 
 export function convertImageSrc(src) {
-  if (process.env.NODE_ENV !== 'development') {
-    return src ? `http://45.32.37.144:${pkg.proxySrverPort}/image?url=${src}` : undefined;
-  } else {
-    return src ? `/image?url=${src}` : undefined;
-  }
+  return src ? `${getBaseURL()}/image?url=${src}` : undefined;
 }
 
 export function logRelatedRepo() {
