@@ -1,13 +1,6 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-
-import stories from '~/reducers/stories';
-import themes from '~/reducers/themes';
-
-const rootReducer = combineReducers({
-  stories,
-  themes
-});
+import rootReducer from '~/reducers';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -26,5 +19,11 @@ export default () => {
     rootReducer,
     enhancer
   )
+  if (module.hot) {
+    module.hot.accept('~/reducers', () => {
+      const nextRootReducer = require('~/reducers').default;
+      store.replaceReducer(nextRootReducer);
+    });
+  }
   return store
 }
