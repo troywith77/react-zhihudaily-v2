@@ -8,6 +8,7 @@ import './TopStoriesStyle';
 function TopStories({
   stories
 }) {
+  if (!stories.length) return null;
   return (
     <SwipeableViews enableMouseEvents className="topStory-slide-container">
       {

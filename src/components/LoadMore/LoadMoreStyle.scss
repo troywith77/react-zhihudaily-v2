@@ -1,7 +1,11 @@
 .loadmore {
-  margin-bottom: 15px;
-  padding: 30px;
+  display: block;
+  width: 200px;
+  height: 45px;
+  line-height: 45px;
+  margin: 0 auto;
   text-align: center;
+  cursor: pointer;
   &-fetching {
     display: none;
   }

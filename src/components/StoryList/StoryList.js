@@ -15,6 +15,7 @@ export default function StoryList ({
   stories,
   header
 }) {
+  if (!stories.length) return null;
   return (
     <div className="story-list">
       <List

@@ -7,6 +7,8 @@ import LoadMore from '../../components/LoadMore/LoadMore';
 import Loading from '../../components/Loading/Loading';
 import * as ActionsCreators from '~/actions';
 
+import './IndexScreenStyle';
+
 class HomeMsgContainer extends Component {
   handleLoadStoriesBefore = () => {
     const { actions, date } = this.props;
@@ -19,21 +21,18 @@ class HomeMsgContainer extends Component {
 
   render() {
     const { topStories, latestStories, storiesBefore, fetching } = this.props;
+    const storiesBeforeList = storiesBefore.map((stories) => (
+      <StoryList stories={stories.stories} header={stories.date} key={stories.date} />
+    ))
     return (
       <div>
         <TopStories stories={topStories} />
-        {
-          latestStories.length ? <StoryList stories={latestStories} header="今天" /> : null 
-        }
-        {
-          storiesBefore.map((stories) => (
-            <StoryList stories={stories.stories} header={stories.date} key={stories.date} />
-          ))
-        }
-        <LoadMore fetching={fetching} onClick={this.handleLoadStoriesBefore} />
-        {
-          fetching ? <Loading /> : null
-        }
+        <StoryList stories={latestStories} header="今天" />
+        {storiesBeforeList}
+        <div className="index-screen-footer">
+          <LoadMore fetching={fetching} onClick={this.handleLoadStoriesBefore} />
+          <Loading loading={fetching} />
+        </div>
       </div>
     )
   }

@@ -10,7 +10,7 @@ class StoryScreen extends React.Component {
   componentWillMount () {
     window.scrollTo(0, 0);
   }
-  
+
   render () {
     const {
       match: {
@@ -19,17 +19,20 @@ class StoryScreen extends React.Component {
         }
       }
     } = this.props;
-    
+
     return (
       <Story
         id={id}
         render={(state) => {
           const { type } = state;
-          if (!type) return (
-            <div className="story-loading">
-              <Loading />
-            </div>
-          );
+          const loading = !type;
+          if (loading) {
+            return (
+              <div className="story-loading">
+                <Loading loading={loading} />
+              </div>
+            );
+          }
           if (type === 'theme') return <ThemeStory state={state} />;
           if (type === 'story') return <NormalStory state={state} />;
         }}
