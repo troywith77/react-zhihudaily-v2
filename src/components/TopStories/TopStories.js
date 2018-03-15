@@ -24,9 +24,11 @@ function TopStories({
               style={style}
               className="topStory-slide"
             >
-              <Link to={`/story/${story.id}`} className="topStory-slide-link">
-                <p className="topStory-slide-title">{story.title}</p>
-              </Link>
+              <p className="topStory-slide-title">
+                <Link to={`/story/${story.id}`} className="topStory-slide-link">
+                  {story.title}
+                </Link>
+              </p>
             </div>
           )
         })
