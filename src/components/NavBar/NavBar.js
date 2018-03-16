@@ -68,7 +68,7 @@ class MenuAppBar extends React.Component {
           <Toolbar>
             <NavDrawer />
             <Typography type="title" color="inherit" className={classes.flex}>
-              知知日报
+              日报
             </Typography>
             <div>
               <IconButton
