@@ -23,9 +23,15 @@ a:hover {
   margin: 0 auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) and (max-width: 1024) {
   .App-inner {
     max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .App-inner {
+    max-width: 800px;
   }
 }
 
