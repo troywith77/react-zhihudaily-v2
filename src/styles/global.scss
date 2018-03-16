@@ -18,6 +18,17 @@ a:hover {
   word-break: break-all;
 }
 
+.App-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .App-inner {
+    max-width: 100%;
+  }
+}
+
 .list-subheader {
   top: 56px !important;
   background-color: #fff !important;

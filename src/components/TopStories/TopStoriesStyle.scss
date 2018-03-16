@@ -1,6 +1,4 @@
 .topStory-slide-container {
-  max-width: 600px;
-  margin: 0 auto;
   overflow: hidden;
   [data-swipeable] {
     overflow: hidden !important;
@@ -10,7 +8,6 @@
 .topStory-slide {
   position: relative;
   min-height: 200px;
-  max-width: 600px;
   height: 100%;
   margin: 0 auto;
   &-link,
@@ -34,7 +31,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 768px) {
   .topStory-slide {
     min-height: 400px; 
   }

@@ -12,12 +12,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar />
-          <Switch>
-            <Route path="/" exact component={IndexScreen} />
-            <Route path="/story/:id" component={StoryScreen} />
-            <Route path="/theme/:id" component={ThemeScreen} />
-            <Route component={NoMatchScreen} />
-          </Switch>
+          <div className="App-inner">
+            <Switch>
+              <Route path="/" exact component={IndexScreen} />
+              <Route path="/story/:id" component={StoryScreen} />
+              <Route path="/theme/:id" component={ThemeScreen} />
+              <Route component={NoMatchScreen} />
+            </Switch>
+          </div>
         </div>
       </Router>
     );

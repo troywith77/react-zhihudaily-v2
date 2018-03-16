@@ -1,5 +1,4 @@
 .story-container {
-  max-width: 600px;
   margin: 10px auto 60px;
   padding: 15px;
   h1 {
@@ -18,7 +17,8 @@
     word-break: break-all;
   }
   img {
-    text-align: center;
+    display: block;
+    margin: 0 auto;
     max-width: 100%;
   }
   figure.background {
