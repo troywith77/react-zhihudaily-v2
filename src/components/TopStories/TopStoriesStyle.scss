@@ -33,3 +33,9 @@
     font-size: 14px;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .topStory-slide {
+    min-height: 400px; 
+  }
+}
