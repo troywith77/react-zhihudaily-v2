@@ -15,8 +15,6 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import Button from 'material-ui/Button';
 
-import NavDrawer from '../NavDrawer/NavDrawer'
-
 const styles = {
   root: {
     width: '100%',
@@ -26,6 +24,7 @@ const styles = {
   },
   flex: {
     flex: 1,
+    textAlign: 'center'
   },
   getInTouch: {
     display: 'block',
@@ -66,7 +65,15 @@ class MenuAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <NavDrawer />
+            {/* <NavDrawer /> */}
+            <IconButton
+              aria-owns={open ? 'menu-appbar' : null}
+              aria-haspopup="true"
+              onClick={this.handleMenu}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>
               日报
             </Typography>
