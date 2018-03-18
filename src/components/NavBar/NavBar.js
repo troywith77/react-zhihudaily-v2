@@ -1,43 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+import { withRouter } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
-import AccountCircle from 'material-ui-icons/AccountCircle';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import Dialog, {
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from 'material-ui/Dialog';
-import Button from 'material-ui/Button';
+import KeyboardArrowLeftIcon from 'material-ui-icons/KeyboardArrowLeft';
 
-const styles = {
-  root: {
-    width: '100%',
-    position: 'sticky',
-    top: 0,
-    zIndex: 2
-  },
-  flex: {
-    flex: 1,
-    textAlign: 'center'
-  },
-  getInTouch: {
-    display: 'block',
-    color: '#3f51b5',
-    marginTop: 10
-  }
-};
+import './NavBarStyle';
+import githubIcon from '~/assets/images/GitHub-Mark-Light-32px.png';
 
 class MenuAppBar extends React.Component {
   state = {
     auth: true,
-    anchorEl: null,
-    dialogOpen: false
+    anchorEl: null
   };
 
   handleMenu = event => {
@@ -48,33 +23,25 @@ class MenuAppBar extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  handleOpenDialog = () => {
-    this.setState({ dialogOpen: true })
-  };
+  handleHistoryBack = () => {
+    this.props.history.goBack();
+  }
 
-  handleCloseDialog = () => {
-    this.setState({ dialogOpen: false, anchorEl: null })
-  };
+  renderBackButton = () => {
+    if (this.props.location.pathname === '/') return;
+    return <KeyboardArrowLeftIcon onClick={this.handleHistoryBack} />
+  }
 
   render() {
-    const { classes } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return (
-      <div className={classes.root}>
+      <nav className="nav">
         <AppBar position="static">
           <Toolbar>
-            {/* <NavDrawer /> */}
-            <IconButton
-              aria-owns={open ? 'menu-appbar' : null}
-              aria-haspopup="true"
-              onClick={this.handleMenu}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Typography type="title" color="inherit" className={classes.flex}>
+            {this.renderBackButton()}
+            <Typography type="title" color="inherit" className="nav-title">
               日报
             </Typography>
             <div>
@@ -84,9 +51,11 @@ class MenuAppBar extends React.Component {
                 onClick={this.handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <a href="https://github.com/troywith77" target="_blank" rel="noreferrer noopener" className="nav-github">
+                  <img src={githubIcon} alt="github icon"/>
+                </a>
               </IconButton>
-              <Menu
+              {/* <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
@@ -101,37 +70,13 @@ class MenuAppBar extends React.Component {
                 onClose={this.handleClose}
               >
                 <MenuItem onClick={this.handleOpenDialog}>About me</MenuItem>
-              </Menu>
+              </Menu> */}
             </div>
           </Toolbar>
         </AppBar>
-        <Dialog
-          open={this.state.dialogOpen}
-          onClose={this.handleCloseDialog}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">About me</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-            Hi, I'm Troy(唐锐). I'm a frontend developer, gym lover and NBA enthusiast currently residing in beautiful ShangHai, China.
-            I'm currently working on Wallstreetcn.com
-            <a style={styles.getInTouch} href="https://github.com/troywith77" target="_blank" rel="noopener noreferrer">GET IN TOUCH</a>
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleCloseDialog} color="primary" autoFocus>
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+      </nav>
     );
   }
 }
 
-MenuAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(MenuAppBar);
+export default withRouter(MenuAppBar);

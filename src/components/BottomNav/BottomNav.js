@@ -1,7 +1,8 @@
 import React from 'react';
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
 import RestoreIcon from 'material-ui-icons/Restore';
-import FavoriteIcon from 'material-ui-icons/Favorite';
+import GradeIcon from 'material-ui-icons/Grade';
+import AccountCircleIcon from 'material-ui-icons/AccountCircle';
 import { withRouter } from 'react-router-dom';
 
 import './BottomNavStyle';
@@ -21,9 +22,9 @@ class BottomNav extends React.Component {
         showLabels
         className="BottomNav"
       >
-        <BottomNavigationAction label="最新" value="/" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="主题" value="/themes" icon={<FavoriteIcon />} />
-        {/* <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} /> */}
+        <BottomNavigationAction label="故事" value="/" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="主题" value="/themes" icon={<GradeIcon />} />
+        <BottomNavigationAction label="设置" value="/settings" icon={<AccountCircleIcon />} />
       </BottomNavigation>
     );
   }
