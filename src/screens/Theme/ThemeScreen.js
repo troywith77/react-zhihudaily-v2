@@ -1,8 +1,10 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as ThemesActionCreators from '~/actions/themes';
+
+import DocumentTitle from '~/containers/DocumentTitle/DocumentTitle';
 import StoryList from '~/components/StoryList/StoryList';
+import * as ThemesActionCreators from '~/actions/themes';
 
 class ThemeScreen extends React.Component {
   fetchData (id) {
@@ -23,9 +25,14 @@ class ThemeScreen extends React.Component {
     const { currentTheme } = this.props;
     const stories = currentTheme ? currentTheme.stories : [];
     return (
-      <div>
-        <StoryList stories={stories} />
-      </div>
+      <DocumentTitle
+        title={currentTheme.name}
+        render={() => (
+          <div>
+            <StoryList stories={stories} />
+          </div>
+        )}
+      />
     )
   }
 }

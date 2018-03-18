@@ -1,20 +1,22 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { push } from 'react-router-redux';
+import { connect } from 'react-redux';
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
 import RestoreIcon from 'material-ui-icons/Restore';
 import GradeIcon from 'material-ui-icons/Grade';
 import AccountCircleIcon from 'material-ui-icons/AccountCircle';
-import { withRouter } from 'react-router-dom';
 
 import './BottomNavStyle';
 
 class BottomNav extends React.Component {
   handleChange = (event, value) => {
     this.setState({ value });
-    this.props.history.push(value);
+    this.props.dispatch(push(value));
   };
 
   render() {
-    const value = this.props.location.pathname;
+    const value = this.props.pathname;
     return (
       <BottomNavigation
         value={value}
@@ -30,4 +32,10 @@ class BottomNav extends React.Component {
   }
 }
 
-export default withRouter(BottomNav);
+const mapStateToProps = state => ({
+  pathname: state.router.location.pathname
+});
+
+export default connect(
+  mapStateToProps
+)(withRouter(BottomNav));
