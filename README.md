@@ -1,4 +1,4 @@
-# 知乎日报
+# 知乎日报(mobile)
 
 用 `React`，`Redux`，`material-ui` 和 `Koa` 重构了之前写的知乎日报，[check the demo](http://45.32.37.144)
 
