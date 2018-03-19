@@ -23,10 +23,11 @@ class ThemeScreen extends React.Component {
 
   render () {
     const { currentTheme } = this.props;
-    const stories = currentTheme ? currentTheme.stories : [];
+    const { stories, name } = currentTheme;
+    if (!currentTheme) return null;
     return (
       <DocumentTitle
-        title={currentTheme.name}
+        title={name}
         render={() => (
           <div>
             <StoryList stories={stories} />

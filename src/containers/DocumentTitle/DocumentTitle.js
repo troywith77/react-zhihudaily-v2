@@ -11,13 +11,14 @@ class DocumentTitle extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    document.title = nextProps.title;
     this.props.actions.setDocumentTitle(nextProps.title);
   }
 
   componentWillUnmount () {
     this.props.actions.setDocumentTitle();
   }
-  
+
   render () {
     return this.props.render();
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { goBack } from 'react-router-redux';
 import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
@@ -52,6 +51,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps
-)(
-  withRouter(MenuAppBar)
-);
+)(MenuAppBar);
