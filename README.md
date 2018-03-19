@@ -7,15 +7,30 @@
 ### 命令
 
 ```
-// For dev, run this two commands simultaneously in terminal.
+// For dev, run this two commands simultaneously in two terminal tabs.
 
 npm run proxy // koa proxy
 npm start     // webpack-dev-server
+
+// For production
+// you can use nginx or Koa to server html file. I'm using nginx in my server.
+
+npm run server // start pm2
+
+server {
+  listen 80;
+  server_name _;
+  root /var/www/zhihudaily/build;
+  location / {
+    try_files $uri /index.html;
+  }
+}
+
 ```
 
 ### 说明
 
-使用 `Koa` 做了一层代理，转发了知乎图片（不转发直接请求会403）和日报的接口，日报的接口在开发环境要解决跨域可以直接使用 `webpack-dev-server` 进行转发，但是因为要部署生产环境，所以同时使用了 `Koa` 来做一个代理。
+日报的 `API` 在开发环境要解决跨域可以直接使用 `webpack-dev-server` 的 `proxy` 进行转发，不过这样只能代理 `API`，图片仍然会403，所以使用 `Koa` 做了一层代理，转发了知乎图片（不转发直接请求会403）和日报的 `API`。
 
 ## API DOC
 
