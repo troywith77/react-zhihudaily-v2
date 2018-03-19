@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import stories from './stories';
-import themes from './themes';
+import themeMsgs from './themeMsgs';
 import themesList from './themesList';
 import document from './document';
 
 const rootReducer = combineReducers({
   stories,
-  themes,
+  themeMsgs,
   themesList,
   document,
   router: routerReducer

@@ -2,7 +2,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
+
 import rootReducer from '~/reducers';
+import { getPersistedState } from '~/services/localStorage';
 
 export default () => {
   const history = createHistory();
@@ -20,8 +22,11 @@ export default () => {
     )
   );
 
+  const persistedState = getPersistedState();
+
   const store = createStore(
     rootReducer,
+    // preloadedState,
     enhancer
   )
   if (module.hot) {

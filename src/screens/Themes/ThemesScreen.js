@@ -13,11 +13,11 @@ class ThemesScreen extends React.Component {
   onClickTheme = (id) => {
     this.props.history.push(`/theme/${id}`);
   }
-  
+
   componentDidMount () {
     this.props.actions.fetchThemesList();
   }
-  
+
   render () {
     return (
       <DocumentTitle

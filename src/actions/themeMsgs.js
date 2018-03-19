@@ -12,7 +12,7 @@ export const fetchedTheme = payload => ({
 export const fetchTheme = id => (dispatch, getState) => {
   dispatch(fetchingTheme());
   // 如果已打开过的主题不再重新请求，因为这些内容不会更新
-  if (getState().themes.themes[id]) return;
+  if (getState().themeMsgs.themes[id]) return;
   return getTheme(id).then((res) => {
     dispatch(fetchedTheme({
       ...res.data,
