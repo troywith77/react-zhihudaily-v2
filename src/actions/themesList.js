@@ -12,7 +12,8 @@ export const fetchedThemesList = themes => ({
   }
 })
 
-export const fetchThemesList = () => (dispatch) => {
+export const fetchThemesList = () => (dispatch, getState) => {
+  if (getState().themesList.themes.length) return;
   dispatch(fetchingThemesList());
   getThemes().then((res) => {
     dispatch(fetchedThemesList(res.data.others));

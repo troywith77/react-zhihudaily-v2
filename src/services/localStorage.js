@@ -1,3 +1,5 @@
+import { throttle } from 'lodash';
+
 export const get = (key) => {
   try {
     if (!localStorage[key]) return;
@@ -22,11 +24,9 @@ export const getPersistedState = () => {
   return get('storyState');
 };
 
-export const persistState = (key, value) => {
-  const state = get('storyState') || {};
-  state[key] = JSON.stringify(value);
-  set('storyState', state);
-};
+export const persistState = throttle((value) => {
+  set('storyState', value);
+}, 1000);
 
 export default {
   get,

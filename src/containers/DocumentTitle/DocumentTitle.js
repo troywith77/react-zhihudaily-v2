@@ -11,6 +11,7 @@ class DocumentTitle extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    if (this.props.title === nextProps.title) return;
     document.title = nextProps.title;
     this.props.actions.setDocumentTitle(nextProps.title);
   }

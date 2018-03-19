@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import createHistory from 'history/createBrowserHistory';
+// import logger from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 
 import rootReducer from '~/reducers';
-// import { getPersistedState } from '~/services/localStorage';
+import { getPersistedState } from '~/services/localStorage';
+import LS from './middlewares/localStorage';
 
 export default () => {
   const history = createHistory();
@@ -17,16 +19,18 @@ export default () => {
 
   const enhancer = composeEnhancers(
     applyMiddleware(
+      routerMiddleware(history),
       thunk,
-      routerMiddleware(history)
+      LS
+      // logger
     )
   );
 
-  // const persistedState = getPersistedState();
+  const persistedState = getPersistedState();
 
   const store = createStore(
     rootReducer,
-    // preloadedState,
+    persistedState,
     enhancer
   )
   if (module.hot) {
