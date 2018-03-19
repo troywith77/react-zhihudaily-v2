@@ -4,7 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 
 import rootReducer from '~/reducers';
-import { getPersistedState } from '~/services/localStorage';
+// import { getPersistedState } from '~/services/localStorage';
 
 export default () => {
   const history = createHistory();
@@ -22,7 +22,7 @@ export default () => {
     )
   );
 
-  const persistedState = getPersistedState();
+  // const persistedState = getPersistedState();
 
   const store = createStore(
     rootReducer,

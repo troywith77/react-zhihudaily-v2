@@ -8,7 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import KeyboardArrowLeftIcon from 'material-ui-icons/KeyboardArrowLeft';
 
 import './NavBarStyle';
-import githubIcon from '~/assets/images/GitHub-Mark-Light-32px.png';
+import githubIcon from '~/assets/images/GitHub-Mark-32px.png';
 
 class MenuAppBar extends React.Component {
   handleHistoryBack = () => {
@@ -17,14 +17,14 @@ class MenuAppBar extends React.Component {
 
   renderBackButton = () => {
     if (this.props.pathname === '/') return;
-    return <KeyboardArrowLeftIcon onClick={this.handleHistoryBack} />
+    return <KeyboardArrowLeftIcon onClick={this.handleHistoryBack} style={{cursor: 'pointer'}} />
   }
 
   render() {
     const { documentTitle } = this.props;
     return (
       <nav className="nav">
-        <AppBar position="static">
+        <AppBar position="static" className="nav-header">
           <Toolbar>
             {this.renderBackButton()}
             <Typography type="title" color="inherit" className="nav-title">
