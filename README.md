@@ -30,7 +30,7 @@ server {
 
 ### 说明
 
-日报的 `API` 在开发环境要解决跨域可以直接使用 `webpack-dev-server` 的 `proxy` 进行转发，不过这样只能代理 `API`，图片仍然会403，所以使用 `Koa` 做了一层代理，转发了知乎图片（不转发直接请求会403）和日报的 `API`。
+日报的 `API` 在开发环境要解决跨域可以直接使用 `webpack-dev-server` 的 `proxy` 进行转发，不过这样只能代理 `API`，图片仍然会 403 Forbidden，所以使用 `Koa` 做了一层代理，转发了知乎图片和日报的 `API`。
 
 ## API DOC
 
