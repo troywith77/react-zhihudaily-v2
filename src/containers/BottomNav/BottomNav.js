@@ -22,7 +22,7 @@ class BottomNav extends React.Component {
         value={value}
         onChange={this.handleChange}
         showLabels
-        className="BottomNav"
+        className="bottom-nav"
       >
         <BottomNavigationAction label="故事" value="/" icon={<RestoreIcon />} />
         <BottomNavigationAction label="主题" value="/themes" icon={<GradeIcon />} />
