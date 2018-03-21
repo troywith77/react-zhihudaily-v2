@@ -34,7 +34,7 @@ class HomeMsgContainer extends Component {
             <TopStories stories={topStories} />
             <StoryList stories={latestStories} header="今天" />
             {storiesBeforeList}
-            <div className="index-screen-footer">
+            <div style={{ margin: '15px 0' }}>
               <LoadMore fetching={fetching} onClick={this.handleLoadStoriesBefore} />
               <Loading loading={fetching} />
             </div>

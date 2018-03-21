@@ -57,7 +57,7 @@ class StoryScreen extends React.Component {
   render () {
     const { isFetching } = this.state;
     if (isFetching) return (
-      <div style={{margin: '100px 0'}}>
+      <div style={{ margin: '100px 0' }}>
         <Loading loading={isFetching} />
       </div>
     );
