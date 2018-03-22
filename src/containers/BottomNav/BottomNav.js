@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { push } from 'react-router-redux';
 import { connect } from 'react-redux';
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
@@ -17,6 +16,9 @@ class BottomNav extends React.Component {
 
   render() {
     const value = this.props.pathname;
+    if ((/\/story\//).test(value)) {
+      return null;
+    }
     return (
       <BottomNavigation
         value={value}
@@ -38,4 +40,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps
-)(withRouter(BottomNav));
+)(BottomNav);

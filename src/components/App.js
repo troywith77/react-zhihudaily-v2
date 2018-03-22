@@ -20,7 +20,7 @@ class App extends Component {
             <Route path="/themes" exact component={ThemesScreen} />
             <Route path="/story/:id" component={StoryScreen} />
             <Route path="/theme/:id" component={ThemeMsgsScreen} />
-            <Route path="/settings" component={SettingsScreen} />
+            <Route path="/settings" exact component={SettingsScreen} />
             <Route component={NoMatchScreen} />
           </Switch>
         </div>
