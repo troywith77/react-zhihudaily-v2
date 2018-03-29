@@ -27,7 +27,7 @@ class StoryList extends React.Component {
         <List subheader={<ListSubheader component="div" className="list-subheader">{header}</ListSubheader>}>
           {
             stories.map((story) => {
-              const path = story.images && story.images[0]
+              const path = (story.images && story.images[0]) || story.image
               let imgSrc
               if (path) imgSrc = convertImageSrc(path);
               return (

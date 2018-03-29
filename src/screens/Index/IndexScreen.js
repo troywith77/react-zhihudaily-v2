@@ -8,6 +8,7 @@ import StoryList from '~/components/StoryList/StoryList';
 import LoadMore from '~/components/LoadMore/LoadMore';
 import Loading from '~/components/Loading/Loading';
 import * as ActionsCreators from '~/actions';
+import { getTopStories, getLatestStories, getHistoryStories } from '~/reducers/entities/stories';
 
 import './IndexScreenStyle';
 
@@ -22,7 +23,7 @@ class HomeMsgContainer extends Component {
   }
 
   render() {
-    const { topStories, latestStories, storiesBefore, fetching } = this.props;
+    const { topStories, latestStories, storiesBefore, isFetching } = this.props;
     const storiesBeforeList = storiesBefore.map((stories) => (
       <StoryList stories={stories.stories} header={stories.date} key={stories.date} />
     ))
@@ -35,8 +36,8 @@ class HomeMsgContainer extends Component {
             <StoryList stories={latestStories} header="今天" />
             {storiesBeforeList}
             <div style={{ margin: '15px 0' }}>
-              <LoadMore fetching={fetching} onClick={this.handleLoadStoriesBefore} />
-              <Loading loading={fetching} />
+              <LoadMore fetching={isFetching} onClick={this.handleLoadStoriesBefore} />
+              <Loading loading={isFetching} />
             </div>
           </div>
         )}
@@ -46,11 +47,11 @@ class HomeMsgContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  topStories: state.stories.topStories,
-  latestStories: state.stories.latestStories,
-  storiesBefore: state.stories.storiesBefore,
-  date: state.stories.date,
-  fetching: state.stories.fetching
+  topStories: getTopStories(state),
+  latestStories: getLatestStories(state),
+  storiesBefore: getHistoryStories(state),
+  date: state.timeline.home.date,
+  isFetching: state.timeline.home.isFetching
 })
 
 const mapDispatchToProps = dispatch => ({
