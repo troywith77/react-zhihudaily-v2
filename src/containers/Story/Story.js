@@ -23,8 +23,33 @@ class Story extends React.Component {
     })
   }
 
+  componentDidMount () {
+    this.intersectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio <= 0) return;
+        entry.target.setAttribute('src', entry.target.getAttribute('data-src'));
+      })
+    }, {
+      rootMargin: '10%'
+    });
+    this.images = document.querySelectorAll('.story-content img');
+    this.images.forEach((ele) => {
+      const clientHeight = document.documentElement.clientHeight;
+      if (ele.getBoundingClientRect().top < clientHeight) {
+        ele.setAttribute('src', ele.getAttribute('data-src'));
+      }
+      this.intersectionObserver.observe(ele);
+    })
+  }
+
   shouldComponentUpdate () {
     return false
+  }
+
+  componentWillUnmount () {
+    this.images.forEach((ele) => {
+      this.intersectionObserver.unobserve(ele);
+    });
   }
 
   render () {
@@ -48,7 +73,8 @@ const processHtml = (body) => {
   element.innerHTML = body;
   Array.from(element.querySelectorAll('img')).forEach((img) => {
     img.setAttribute('alt', img.getAttribute('src'));
-    img.setAttribute('src', convertImageSrc(img.getAttribute('src')));
+    img.setAttribute('data-src', convertImageSrc(img.getAttribute('src')));
+    img.setAttribute('src', 'https://via.placeholder.com/500x300');
   });
   Array.from(element.querySelectorAll('a')).forEach((link) => {
     const href = link.getAttribute('href');

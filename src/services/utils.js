@@ -1,7 +1,9 @@
 import { getBaseURL } from './env';
 
 export function convertImageSrc(src) {
-  return src ? `${getBaseURL()}/image?url=${src}` : undefined;
+  if (!src) return src;
+  if (src.indexOf('zhimg.com') === -1) return src;
+  return `${getBaseURL()}/image?url=${src}`;
 }
 
 export function logRelatedRepo() {
