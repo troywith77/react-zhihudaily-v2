@@ -19,29 +19,18 @@ class StoryScreen extends React.Component {
     this.id = this.props.match.params.id;
   }
 
-  getStory = () => {
-    getStory(this.id).then((res) => {
-      const data = {
-        ...res.data
-      };
-      this.setState({
-        data,
-        isFetching: false,
-        type: data.theme ? 'theme' : 'story'
-      });
+  async getStory () {
+    const storyResponse = await getStory(this.id);
+    const longComments = await getStoryLongComments(this.id);
+    const shortComments = await getStoryShortComments(this.id);
+
+    this.setState({
+      data: {...storyResponse.data},
+      isFetching: false,
+      type: storyResponse.data.theme ? 'theme' : 'story',
+      longComments: longComments.data.comments,
+      shortComments: shortComments.data.comments
     });
-  }
-
-  getStoryLongComments = () => {
-    getStoryLongComments(this.id).then((res) => {
-      this.setState({ longComments: res.data.comments });
-    })
-  }
-
-  getStoryShortComments = () => {
-    getStoryShortComments(this.id).then((res) => {
-      this.setState({ shortComments: res.data.comments });
-    })
   }
 
   componentWillMount () {
@@ -50,8 +39,6 @@ class StoryScreen extends React.Component {
 
   componentDidMount () {
     this.getStory();
-    this.getStoryLongComments();
-    this.getStoryShortComments();
   }
 
   render () {

@@ -74,7 +74,7 @@ const processHtml = (body) => {
   Array.from(element.querySelectorAll('img')).forEach((img) => {
     img.setAttribute('alt', img.getAttribute('src'));
     img.setAttribute('data-src', convertImageSrc(img.getAttribute('src')));
-    img.setAttribute('src', 'https://via.placeholder.com/500x300');
+    img.setAttribute('src', 'https://via.placeholder.com/500x300?text=loading...');
   });
   Array.from(element.querySelectorAll('a')).forEach((link) => {
     const href = link.getAttribute('href');
