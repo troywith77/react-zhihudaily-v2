@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import DocumentTitle from '~/containers/DocumentTitle/DocumentTitle';
 import StoryList from '~/components/StoryList/StoryList';
 import * as ThemesActionCreators from '~/actions/themeMsgs';
+import { getSelectedTheme, getSelectedThemeStories } from '~/reducers/timeline/theme';
 
 class ThemeScreen extends React.Component {
   fetchData (id) {
@@ -22,15 +23,13 @@ class ThemeScreen extends React.Component {
   }
 
   render () {
-    const { currentTheme } = this.props;
-    if (!currentTheme) return null;
-    const { stories, name } = currentTheme;
+    const { currentTheme, currentThemeStories } = this.props;
     return (
       <DocumentTitle
-        title={name}
+        title={currentTheme.name}
         render={() => (
           <div>
-            <StoryList stories={stories} />
+            <StoryList stories={currentThemeStories} />
           </div>
         )}
       />
@@ -40,7 +39,8 @@ class ThemeScreen extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   fetching: state.themeMsgs.fetching,
-  currentTheme: state.themeMsgs.themes[ownProps.match.params.id]
+  currentTheme: getSelectedTheme(state, ownProps.match.params.id),
+  currentThemeStories: getSelectedThemeStories(state, ownProps.match.params.id)
 });
 
 const mapDispatchToProps = dispatch => ({

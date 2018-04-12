@@ -4,6 +4,14 @@ const initialState = {
   // fetchStatus: {}
 }
 
+const receivedStories = (state, action) => ({
+  ...state,
+  byId: {
+    ...state.byId,
+    ...action.payload.entities.stories
+  }
+})
+
 const handler = {
   'RECEIVED_ENTITIES_LATEST_STORIES': (state, action) => {
     return {
@@ -15,15 +23,8 @@ const handler = {
       }
     };
   },
-  'RECEIVED_ENTITIES_HISTORY_STORIES': (state, action) => {
-    return {
-      ...state,
-      byId: {
-        ...state.byId,
-        ...action.payload.entities.stories
-      }
-    };
-  }
+  'RECEIVED_ENTITIES_HISTORY_STORIES': receivedStories,
+  'RECEIVED_THEME': receivedStories
 }
 
 const stories = (state = initialState, action) => {
