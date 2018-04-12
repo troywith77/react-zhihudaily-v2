@@ -33,11 +33,8 @@ class StoryScreen extends React.Component {
     });
   }
 
-  componentWillMount () {
-    window.scrollTo(0, 0);
-  }
-
   componentDidMount () {
+    window.scrollTo(0, 0);
     this.getStory();
   }
 

@@ -28,9 +28,8 @@ class ThemesScreen extends React.Component {
             {
               this.props.themes.map((theme) => {
                 return (
-                  <div style={{ marginBottom: 10 }}>
+                  <div style={{ marginBottom: 10 }} key={theme.id}>
                     <MediaCard
-                      key={theme.id}
                       header={theme.name}
                       subheader={theme.description}
                       image={convertImageSrc(theme.thumbnail)}
