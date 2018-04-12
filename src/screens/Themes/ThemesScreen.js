@@ -28,17 +28,19 @@ class ThemesScreen extends React.Component {
             {
               this.props.themes.map((theme) => {
                 return (
-                  <MediaCard
-                    key={theme.id}
-                    header={theme.name}
-                    subheader={theme.description}
-                    image={convertImageSrc(theme.thumbnail)}
-                    actions={
-                      <Button size="small" color="primary" onClick={() => this.onClickTheme(theme.id)}>
-                        查 看
-                      </Button>
-                    }
-                  />
+                  <div style={{ marginBottom: 10 }}>
+                    <MediaCard
+                      key={theme.id}
+                      header={theme.name}
+                      subheader={theme.description}
+                      image={convertImageSrc(theme.thumbnail)}
+                      actions={
+                        <Button size="small" color="primary" onClick={() => this.onClickTheme(theme.id)}>
+                          查 看
+                        </Button>
+                      }
+                    />
+                  </div>
                 )
               })
             }

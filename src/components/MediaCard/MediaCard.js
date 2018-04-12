@@ -17,37 +17,35 @@ const styles = {
 function MediaCard(props) {
   const { classes, header, subheader, image, actions } = props;
   return (
-    <div>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={image}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            {header}
-          </Typography>
-          <Typography component="p">
-            {subheader}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          {
-            actions ? actions : (
-              <div>
-                <Button size="small" color="primary">
-                  Share
-                </Button>
-                <Button size="small" color="primary">
-                  Learn More
-                </Button>
-              </div>
-            )
-          }
-        </CardActions>
-      </Card>
-    </div>
+    <Card className={classes.card}>
+      <CardMedia
+        className={classes.media}
+        image={image}
+        title="Contemplative Reptile"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="headline" component="h2">
+          {header}
+        </Typography>
+        <Typography component="p">
+          {subheader}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        {
+          actions ? actions : (
+            <div>
+              <Button size="small" color="primary">
+                Share
+              </Button>
+              <Button size="small" color="primary">
+                Learn More
+              </Button>
+            </div>
+          )
+        }
+      </CardActions>
+    </Card>
   );
 }
 
