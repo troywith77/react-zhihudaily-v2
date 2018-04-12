@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Button from 'material-ui/Button';
 import * as Actions from '~/actions';
-import { getThemes } from '~/reducers/entities/themes';
+import { getThemes } from '~/reducers/timeline/themes';
 
 import DocumentTitle from '~/containers/DocumentTitle/DocumentTitle';
 import MediaCard from '~/components/MediaCard/MediaCard';

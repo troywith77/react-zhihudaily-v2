@@ -12,8 +12,8 @@ const LS = ({ getState }) => (next) => (action) => {
       themes: nextState.timeline.themes
     },
     entities: {
-      themes: {
-        byId: nextState.entities.themes.byId
+      theme: {
+        byId: nextState.entities.theme.byId
       }
     }
   });

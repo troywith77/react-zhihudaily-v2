@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import DocumentTitle from '~/containers/DocumentTitle/DocumentTitle';
 import StoryList from '~/components/StoryList/StoryList';
-import * as ThemesActionCreators from '~/actions/themeMsgs';
+import * as ThemesActionCreators from '~/actions/entities-theme';
 import { getSelectedTheme, getSelectedThemeStories } from '~/reducers/timeline/theme';
 
 class ThemeScreen extends React.Component {
@@ -38,7 +38,6 @@ class ThemeScreen extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  fetching: state.themeMsgs.fetching,
   currentTheme: getSelectedTheme(state, ownProps.match.params.id),
   currentThemeStories: getSelectedThemeStories(state, ownProps.match.params.id)
 });
