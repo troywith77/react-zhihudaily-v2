@@ -10,7 +10,7 @@ const initialState = {
 }
 
 const handler = {
-  'FETCHING_STORIES': (state, action) => {
+  'RECEIVING_STORIES': (state, action) => {
     return {
       ...state,
       isFetching: true

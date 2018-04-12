@@ -5,10 +5,17 @@ const LS = ({ getState }) => (next) => (action) => {
   const returnValue = next(action);
   // console.log('nextState', action, getState());
   const nextState = getState();
-  const { themeMsgs, themesList } = nextState;
+  const { themeMsgs } = nextState;
   persistState({
     themeMsgs,
-    themesList
+    timeline: {
+      themes: nextState.timeline.themes
+    },
+    entities: {
+      themes: {
+        byId: nextState.entities.themes.byId
+      }
+    }
   });
   return returnValue;
 }

@@ -3,7 +3,7 @@ import { latestStorySchema, historyStorySchema } from '~/schemas/stories';
 import { getLatestStories, getStoriesBefore } from '../services/api';
 
 export const fetchingStories = () => ({
-  type: 'FETCHING_STORIES'
+  type: 'RECEIVING_STORIES'
 })
 
 export const fetchLatestStories = () => (dispatch, getState) => {
