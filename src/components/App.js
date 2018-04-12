@@ -5,7 +5,7 @@ import BottomNav from '~/containers/BottomNav/BottomNav';
 import IndexScreen from '~/screens/Index/IndexScreen';
 import ThemesScreen from '~/screens/Themes/ThemesScreen';
 import StoryScreen from '~/screens/Story/StoryScreen';
-import ThemeMsgsScreen from '~/screens/ThemeMsgs/ThemeMsgsScreen';
+import ThemeScreen from '~/screens/Theme/ThemeScreen';
 import SettingsScreen from '~/screens/Settings/SettingsScreen';
 import NoMatchScreen from '~/screens/NoMatch/NoMatchScreen';
 
@@ -19,7 +19,7 @@ class App extends Component {
             <Route path="/" exact component={IndexScreen} />
             <Route path="/themes" exact component={ThemesScreen} />
             <Route path="/story/:id" component={StoryScreen} />
-            <Route path="/theme/:id" component={ThemeMsgsScreen} />
+            <Route path="/theme/:id" component={ThemeScreen} />
             <Route path="/settings" exact component={SettingsScreen} />
             <Route component={NoMatchScreen} />
           </Switch>

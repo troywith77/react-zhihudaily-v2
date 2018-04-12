@@ -1,5 +1,5 @@
 import { normalize } from 'normalizr';
-import { latestStorySchema, historyStorySchema } from './stories.schema';
+import { latestStorySchema, historyStorySchema } from '~/schemas/stories';
 import { getLatestStories, getStoriesBefore } from '../services/api';
 
 export const fetchingStories = () => ({
