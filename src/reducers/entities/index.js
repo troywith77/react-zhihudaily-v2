@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import stories from './stories';
+import themes from './themes';
 
 const entities = combineReducers({
-  stories
+  stories,
+  themes
 });
 
 export default entities;

@@ -30,7 +30,7 @@ export default () => {
 
   const store = createStore(
     rootReducer,
-    persistedState,
+    // persistedState,
     enhancer
   )
 

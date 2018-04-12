@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Button from 'material-ui/Button';
 import * as Actions from '~/actions';
+import { getThemes } from '~/reducers/entities/themes';
 
 import DocumentTitle from '~/containers/DocumentTitle/DocumentTitle';
 import MediaCard from '~/components/MediaCard/MediaCard';
@@ -25,7 +26,7 @@ class ThemesScreen extends React.Component {
         render={() => (
           <div className="themes-list">
             {
-              this.props.themesList.themes.map((theme) => {
+              this.props.themes.map((theme) => {
                 return (
                   <MediaCard
                     key={theme.id}
@@ -49,7 +50,7 @@ class ThemesScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  themesList: state.themesList
+  themes: getThemes(state)
 });
 
 const mapDispatchToProps = dispatch => ({
