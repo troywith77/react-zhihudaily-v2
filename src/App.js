@@ -9,25 +9,21 @@ import ThemeScreen from '~/screens/Theme/ThemeScreen';
 import SettingsScreen from '~/screens/Settings/SettingsScreen';
 import NoMatchScreen from '~/screens/NoMatch/NoMatchScreen';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <NavBar />
-        <div className="App-inner">
-          <Switch>
-            <Route path="/" exact component={IndexScreen} />
-            <Route path="/themes" exact component={ThemesScreen} />
-            <Route path="/story/:id" component={StoryScreen} />
-            <Route path="/theme/:id" component={ThemeScreen} />
-            <Route path="/settings" exact component={SettingsScreen} />
-            <Route component={NoMatchScreen} />
-          </Switch>
-        </div>
-        <BottomNav />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <NavBar />
+    <div className="App-inner">
+      <Switch>
+        <Route path="/" exact component={IndexScreen} />
+        <Route path="/themes" exact component={ThemesScreen} />
+        <Route path="/story/:id" component={StoryScreen} />
+        <Route path="/theme/:id" component={ThemeScreen} />
+        <Route path="/settings" exact component={SettingsScreen} />
+        <Route component={NoMatchScreen} />
+      </Switch>
+    </div>
+    <BottomNav />
+  </div>
+);
 
 export default App;
