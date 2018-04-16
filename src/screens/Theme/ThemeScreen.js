@@ -16,12 +16,6 @@ class ThemeScreen extends React.Component {
     this.fetchData(this.props.match.params.id);
   }
 
-  componentWillReceiveProps (nextProps) {
-    // 切换主题时因为路由主体不会变化，只有id变了，所以需要在这里判断id
-    if (this.props.match.params.id === nextProps.match.params.id) return;
-    this.fetchData(nextProps.match.params.id);
-  }
-
   render () {
     const { currentTheme, currentThemeStories } = this.props;
     return (
