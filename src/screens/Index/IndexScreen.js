@@ -9,6 +9,7 @@ import LoadMore from '~/components/LoadMore/LoadMore';
 import Loading from '~/components/Loading/Loading';
 import * as ActionsCreators from '~/actions';
 import { getTopStories, getLatestStories, getHistoryStories } from '~/reducers/entities/stories';
+import { formatDateString } from '~/services/utils'
 
 import './IndexScreenStyle';
 
@@ -25,7 +26,7 @@ class HomeMsgContainer extends Component {
   render() {
     const { topStories, latestStories, storiesBefore, isFetching } = this.props;
     const storiesBeforeList = storiesBefore.map((stories) => (
-      <StoryList stories={stories.stories} header={stories.date} key={stories.date} />
+      <StoryList stories={stories.stories} header={formatDateString(stories.date)} key={stories.date} />
     ))
     return (
       <DocumentTitle

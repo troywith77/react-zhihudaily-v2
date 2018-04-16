@@ -13,3 +13,10 @@ export function logRelatedRepo() {
   console.log(`Github Repo: ${github}`);
   console.log(`API DOC: ${api}`);
 }
+
+export function formatDateString(str) {
+  const arr = str.split('');
+  arr.splice(4, 0, ' / ');
+  arr.splice(7, 0, ' / ');
+  return arr.join('');
+}
