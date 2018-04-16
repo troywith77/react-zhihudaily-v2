@@ -1,19 +1,14 @@
 import React from 'react';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
 import { Link } from 'react-router-dom';
 import { convertImageSrc } from '~/services/utils';
 
 import './TopStoriesStyle';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
 function TopStories({
   stories
 }) {
-  if (!stories.length) return null;
   return (
-    <AutoPlaySwipeableViews enableMouseEvents className="topStory-slide-container">
+    <div className="top-stories">
       {
         stories.map((story) => {
           const bg = convertImageSrc(story.image)
@@ -25,10 +20,10 @@ function TopStories({
             <div
               key={story.id}
               style={style}
-              className="topStory-slide"
+              className="top-story"
             >
-              <p className="topStory-slide-title">
-                <Link to={`/story/${story.id}`} className="topStory-slide-link">
+              <p className="top-story-title">
+                <Link to={`/story/${story.id}`} className="top-story-link">
                   {story.title}
                 </Link>
               </p>
@@ -36,8 +31,8 @@ function TopStories({
           )
         })
       }
-    </AutoPlaySwipeableViews>
-  );
+    </div>
+  )
 }
 
 export default TopStories;
