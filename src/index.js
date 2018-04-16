@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import './styles/global.scss';
-import App from './components/App';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import createStore from './store';
 import { logRelatedRepo } from './services/utils';
@@ -26,8 +26,8 @@ ReactDOM.render(
 registerServiceWorker();
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    const NextApp = require('./components/App').default
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default
     ReactDOM.render(
       <Provider store={store}>
         <ConnectedRouter history={history}>
