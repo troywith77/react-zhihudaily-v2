@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { convertImageSrc } from '~/services/utils';
+import { convertStoryImageSrc } from '~/services/utils';
 
 import './TopStoriesStyle';
 
@@ -11,7 +11,7 @@ function TopStories({
     <div className="top-stories">
       {
         stories.map((story) => {
-          const bg = convertImageSrc(story.image)
+          const bg = convertStoryImageSrc(story)
           const style = {
             backgroundImage: `url(${bg})`,
             backgroundSize: 'cover',

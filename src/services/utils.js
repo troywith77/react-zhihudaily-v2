@@ -1,5 +1,10 @@
 import { getBaseURL } from './env';
 
+export function convertStoryImageSrc(story) {
+  const path = (story.images && story.images[0]) || story.image;
+  return convertImageSrc(path);
+}
+
 export function convertImageSrc(src) {
   if (!src) return src;
   if (src.indexOf('zhimg.com') === -1) return src;

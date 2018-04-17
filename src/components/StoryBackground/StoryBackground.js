@@ -4,6 +4,7 @@ import { convertImageSrc } from '~/services/utils';
 const StoryBackground = ({
   data
 }) => {
+  console.log(data)
   return (
     data.image ? (
       <figure className="background">

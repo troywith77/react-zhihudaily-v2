@@ -6,7 +6,7 @@ import {
   ListItemText
 } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
-import { convertImageSrc } from '~/services/utils';
+import { convertStoryImageSrc } from '~/services/utils';
 import { fetchStoryExtra } from '~/actions';
 
 class StoryListItem extends React.Component {
@@ -23,10 +23,8 @@ class StoryListItem extends React.Component {
 
   render () {
     const { story, onClick } = this.props;
-    const { id, title, images, image, extra } = story;
-    const path = (images && images[0]) || image;
-    let imgSrc;
-    if (path) imgSrc = convertImageSrc(path);
+    const { id, title, extra } = story;
+    let imgSrc = convertStoryImageSrc(story);
     return (
       <ListItem key={id} button onClick={() => onClick(id)}>
         {
