@@ -1,14 +1,8 @@
 import React from 'react';
-import List, {
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  ListSubheader
-} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
+import List, { ListSubheader } from 'material-ui/List';
 import { withRouter } from 'react-router-dom';
+import StoryListItem from '../StoryListItem/StoryListItem';
 
-import { convertImageSrc } from '~/services/utils';
 import './StoryListStyle';
 
 class StoryList extends React.Component {
@@ -26,25 +20,7 @@ class StoryList extends React.Component {
       <div className="story-list">
         <List subheader={<ListSubheader component="div" className="list-subheader">{header}</ListSubheader>}>
           {
-            stories.map((story) => {
-              const path = (story.images && story.images[0]) || story.image
-              let imgSrc
-              if (path) imgSrc = convertImageSrc(path);
-              return (
-                <ListItem key={story.id} button onClick={() => this.handleRouteChange(story.id)}>
-                  {
-                    imgSrc && (
-                    <ListItemAvatar>
-                      <Avatar alt={story.title} src={imgSrc} />
-                    </ListItemAvatar>
-                    )
-                  }
-                  <ListItemText
-                    primary={story.title}
-                  />
-                </ListItem>
-              )
-            })
+            stories.map((story) => <StoryListItem key={story.id} story={story} onClick={this.handleRouteChange} />)
           }
         </List>
       </div>

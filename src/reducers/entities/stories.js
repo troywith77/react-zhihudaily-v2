@@ -24,7 +24,19 @@ const handler = {
     };
   },
   'RECEIVED_ENTITIES_HISTORY_STORIES': receivedStories,
-  'RECEIVED_THEME': receivedStories
+  'RECEIVED_THEME': receivedStories,
+  'RECEIVED_ENTITIES_STORY_EXTRA': (state, action) => {
+    return {
+      ...state,
+      byId: {
+        ...state.byId,
+        [action.id]: {
+          ...state.byId[action.id],
+          extra: action.payload
+        }
+      }
+    };
+  }
 }
 
 const stories = (state = initialState, action) => {

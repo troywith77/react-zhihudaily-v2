@@ -20,6 +20,10 @@ export function getStory(id) {
   return instance.get(`/api/4/news/${id}`)
 }
 
+export function getStoryExtra(id) {
+  return instance.get(`/api/4/story-extra/${id}`)
+}
+
 export function getStoryLongComments(id) {
   return instance.get(`/api/4/story/${id}/long-comments`)
 }
