@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import NavBar from '~/containers/NavBar/NavBar';
 import BottomNav from '~/containers/BottomNav/BottomNav';

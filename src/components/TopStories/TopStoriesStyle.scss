@@ -11,12 +11,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    padding: 10px;
-    height: 100%;
-    color: #ddd;
-  }
-  &-title {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -24,6 +18,8 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.4);
     margin: 0;
+    padding: 10px;
+    color: #ddd;
     text-align: justify;
     font-size: 14px;
     line-height: 1.35;

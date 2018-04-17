@@ -22,11 +22,9 @@ function TopStories({
               style={style}
               className="top-story"
             >
-              <p className="top-story-title">
-                <Link to={`/story/${story.id}`} className="top-story-link">
-                  {story.title}
-                </Link>
-              </p>
+              <Link to={`/story/${story.id}`} className="top-story-link">
+                {story.title}
+              </Link>
             </div>
           )
         })
