@@ -5,7 +5,7 @@
     grid-column: 1 / 3;
   }
   &-image {
-    height: 120px;
+    height: 80px;
     img {
       width: 100%;
       height: 100%;
@@ -31,10 +31,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  padding: 8px 8px 0 8px;
 }
 
 @media screen and (min-width: 1023px) {
-  .top-story {
-    min-height: 200px;
+  .top-stories {
+    padding: 0;
+  }
+  .top-story-image {
+    min-height: 120px;
   }
 }

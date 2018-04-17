@@ -14,7 +14,8 @@ function TopStories({
           const bg = convertImageSrc(story.image)
           const style = {
             backgroundImage: `url(${bg})`,
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }
           return (
             <div
