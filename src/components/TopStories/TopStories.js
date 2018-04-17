@@ -19,11 +19,11 @@ function TopStories({
           return (
             <div
               key={story.id}
-              style={style}
               className="top-story"
             >
               <Link to={`/story/${story.id}`} className="top-story-link">
-                {story.title}
+                <div className="top-story-image" style={style}></div>              
+                <p>{story.title}</p>
               </Link>
             </div>
           )

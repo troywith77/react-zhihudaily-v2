@@ -1,35 +1,36 @@
 .top-story {
   position: relative;
-  min-height: 150px;
   height: 100%;
   &:first-child {
     grid-column: 1 / 3;
   }
+  &-image {
+    height: 120px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   &-link,
   &-link:link,
   &-link:hover {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
     margin: 0;
-    padding: 10px;
-    color: #ddd;
-    text-align: justify;
-    font-size: 14px;
-    line-height: 1.35;
+    color: #000;
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: bold;
+    p {
+      margin: 0;
+      margin-top: 10px;
+    }
   }
 }
 
 .top-stories {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 6px;
+  grid-gap: 20px;
 }
 
 @media screen and (min-width: 1023px) {
