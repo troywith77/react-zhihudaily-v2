@@ -21,7 +21,8 @@ export function logRelatedRepo() {
 
 export function formatDateString(str) {
   const arr = str.split('');
-  arr.splice(4, 0, ' / ');
-  arr.splice(7, 0, ' / ');
+  arr.splice(4, 0, '年');
+  arr.splice(7, 0, '月');
+  arr.push('日')
   return arr.join('');
 }
