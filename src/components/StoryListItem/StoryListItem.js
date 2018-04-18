@@ -27,13 +27,13 @@ class StoryListItem extends React.Component {
     let imgSrc = convertStoryImageSrc(story);
     return (
       <ListItem key={id} button onClick={() => onClick(id)}>
-        {
+        {/* {
           imgSrc && (
           <ListItemAvatar>
             <Avatar alt={title} src={imgSrc} />
           </ListItemAvatar>
           )
-        }
+        } */}
         <ListItemText
           primary={title}
           secondary={extra && `评论：${extra.comments} | 热度：${extra.popularity}`}
