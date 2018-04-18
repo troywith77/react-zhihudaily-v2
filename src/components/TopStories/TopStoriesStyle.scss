@@ -30,13 +30,14 @@
 .top-stories {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 6px;
   padding: 8px 8px 0 8px;
 }
 
 @media screen and (min-width: 1023px) {
   .top-stories {
     padding: 0;
+    grid-gap: 20px;
   }
   .top-story-image {
     min-height: 120px;
