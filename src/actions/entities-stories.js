@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 import { normalize } from 'normalizr';
 import { latestStorySchema, historyStorySchema } from '~/schemas/stories';
 import { getLatestStories, getStoriesBefore, getStoryExtra } from '../services/api';
@@ -27,7 +28,8 @@ export const fetchStoriesBefore = (date) => (dispatch) => {
   });
 }
 
-export const fetchStoryExtra = (id) => (dispatch) => {
+export const fetchStoryExtra = (id) => (dispatch, getState) => {
+  if (get(getState().entities.stories.byId[id], 'extra')) return;
   getStoryExtra(id).then((res) => {
     dispatch({
       type: 'RECEIVED_ENTITIES_STORY_EXTRA',
