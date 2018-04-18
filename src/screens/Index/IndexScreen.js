@@ -30,7 +30,7 @@ class HomeMsgContainer extends Component {
     ))
     return (
       <DocumentTitle
-        title='Just Story'
+        title='Read stories that matter | Troy'
         render={() => (
           <div>
             <TopStories stories={topStories} />
